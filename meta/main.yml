@@ -1,0 +1,49 @@
+---
+galaxy_info:
+  author: Uco Mesdag
+  namespace: ucomesdag
+  role_name: package_cache
+  description: Update package cache for systems package manager module.
+  license: Apache-2.0
+  company: none
+  min_ansible_version: "2.10"
+
+  platforms:
+    - name: Alpine
+      versions:
+        - any
+    - name: Amazon
+      versions:
+        - Candidate
+    - name: ArchLinux
+      versions:
+        - any
+    - name: EL
+      versions:
+        - 9
+        - 8
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+    - name: Fedora
+      versions:
+        - 36
+        - 35
+        - 34
+        - 33
+    - name: OpenSUSE
+      versions:
+        - 15.2
+    - name: Ubuntu
+      versions:
+        - jammy
+        - focal
+        - bionic
+
+  galaxy_tags:
+    - package
+    - cache
+    - update
+
+dependencies: []

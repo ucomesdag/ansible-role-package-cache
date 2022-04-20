@@ -1,0 +1,5 @@
+---
+repository:
+  description: Update package cache for systems package manager module.
+  homepage: https://mesd.ag/
+  topics: ansible, role, package, cache, update

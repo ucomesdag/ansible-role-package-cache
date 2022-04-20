@@ -1,0 +1,39 @@
+---
+# tasks file for package_cache
+
+- name: Identify package manager
+  ansible.builtin.setup:
+    filter: ansible_pkg_mgr
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_pkg_mgr == "apt"
+
+- name: Update yum cache
+  ansible.builtin.yum:
+    update_cache: yes
+  when: ansible_pkg_mgr == "yum"
+
+- name: Update apk cache
+  community.general.apk:
+    update_cache: yes
+  when: ansible_pkg_mgr == "apk"
+  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
+
+- name: Update dnf cache
+  ansible.builtin.dnf:
+    update_cache: yes
+  when: ansible_pkg_mgr == "dnf"
+
+- name: Update zypper cache
+  community.general.zypper:
+    name: zypper
+    update_cache: yes
+  when: ansible_pkg_mgr == "zypper"
+
+- name: Update pacman cache
+  community.general.pacman:
+    update_cache: yes
+  when: ansible_pkg_mgr == "pacman"
+  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
